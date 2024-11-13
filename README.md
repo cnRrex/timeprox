@@ -1,3 +1,15 @@
+## NOTE
+This fork has some modifications to fix some issues. It works fine on Windows with Node.js v22.11.0.
+
+### Changes:
+Switched to node-fetch-h2 and used agent to multiplex tcp connections. Borrowed some code from fetch-charset-detection in order to detect encoding. As well as some regex filter refinements, url fixes, headers modifications, etc.
+Modern browsers and IE6 access to 2012 www.bilibili.tv work fine.
+
+### Known issues:
+Some resource types are incompletely recognized and need to be expanded (im_|fw_|js_|cs_|if_|oe_). And currently will keep these prefixes on the original link to make sure the url conversion works (but there are bugs).
+There are issues with setHeaders, currently commenting out some content, removing Content-Length and using Transfer-Encoding: chunked.
+There are also performance issues and content type issues, etc. There is currently some debug output that you can try to diagnose and fix.
+
 timeprox
 ========
 
